@@ -17,6 +17,8 @@ To summarize, we firsly use the latter dataset to develop an overall analysis al
 3) <code>ECG_Doctor.ipynb</code>: a jupyter notebook for visualizing the predictions made by the ML model on the Mortara dataset. It consists of a Plotly Dash interface.
 4) <code>xgboost_param_nwin4.csv</code>: a CSV file with saved (optimal) ML parameters after GridSearch
 5) <code>multi_maxdepth5_nwindow3.json</code>: a JSON file with pre-trained on Physionet dataset ML model
+6) <code>everything.csv</code>/<code>everything_extended.csv</code>: are CSV files containing all the information about the Mortara/Mortara Extended heartbeats including the ML classification results. This is the input file for ECG_Doctor.ipnyb
+
 
 ## **Content of the project**
 Here we give a brief description of the project content to give an idea of the analysis. For an in-depth understanding, it is necessary to consult the <code>ECG_Physionet.ipynb</code> file.
@@ -33,7 +35,7 @@ Since we do not have any annotations (labels) in the Mortara dataset, we had to 
 We calculate the balanced accuracy of the R-peaks detection algorithm for the Physionet dataset: 95%.
 
 ### 3) Segmentation of the signal
-We would like to separate each heartbeat and later compose a feature vector for each. For this, we use the previously found R-peaks and the known proportions between the duration of phases of the heartbeat.
+We would like to separate each heartbeat with a variable window-size algorithm, to later compose a feature vector for each. For this, we use the previously found R-peaks and the known proportions between the duration of phases of the heartbeat.
 
 ### 4) Extraction of features
 
